@@ -18,7 +18,7 @@ logging.basicConfig(level=logging.INFO,
 # Inputs
 parser = argparse.ArgumentParser()
 parser.add_argument("--num_elements", help="number of elements in the array, defaults to 3", default=3)
-parser.add_argument("--beam_steering", help="angle of beam steering in degrees, defaults to 0.3 degrees", default=0.3)
+parser.add_argument("--beam_steering", help="angle of beam steering in degrees, defaults to 0.3 degrees", default=10)
 parser.add_argument("--frequency", help="transmitter frequency of qpsk signal, used to determine array element spacing, default 30 Ghz for Ka band", default=30e9)
 args = parser.parse_args()
 
@@ -99,7 +99,7 @@ class PhasedArrayElement():
         self.thread = None
 
     def generate_phase_shift(self, beam_steering):
-        shift = abs((360*self.spacing*math.sin(beam_steering)/self.wavelength)*self.element_number)
+        shift = abs((360*self.spacing*math.sin(math.radians(beam_steering))/self.wavelength)*self.element_number)
         while shift > 360:
             shift -= 360
         return shift
