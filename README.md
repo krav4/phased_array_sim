@@ -8,7 +8,7 @@ The waveform at each element after application of phase shift is plotted real-ti
 ## Inputs
 
  - num_elements - number of phased array elements, defaults to 3.
- - beam_angle - the desired beam direction in degrees. Phase shift turned out to be very sensitive to this value, so defaults to 0.5.
+ - beam_angle - the desired beam direction in degrees. Defaults to 10 degrees.
  - frequency - the transmission frequency determines how far away the elements are spaced (optimal lambda/2). Defaults to 30 GHz, which is Ka-band.
 
 ## Outputs
